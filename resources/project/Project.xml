@@ -28,8 +28,8 @@
     </Categories>
     <EntryPoints Location="Root">
         <EntryPoint Location="057dfb89-e81f-4ab1-bf4a-b4320b94df61">
-            <Info File="+helper/ProjectStartUp.m" GroupUUID="" Icon="" Name="ProjectStartUp" Type="StartUp" Visible="0">
-                <Extension Name="StartUpPrev" Value="8d22c586-bcad-4878-ba4d-3864a26190e3"/>
+            <Info File="+helper/ProjectStartUp.m" GroupUUID="default" Icon="" Name="ProjectStartUp" Type="StartUp" Visible="0">
+                <Extension Name="StartUpPrev" Value="HEAD"/>
             </Info>
         </EntryPoint>
         <EntryPoint Location="32c0c00b-feb0-4876-b050-9845a92944d7">
