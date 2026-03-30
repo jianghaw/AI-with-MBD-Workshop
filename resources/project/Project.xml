@@ -32,9 +32,6 @@
                 <Extension Name="StartUpPrev" Value="HEAD"/>
             </Info>
         </EntryPoint>
-        <EntryPoint Location="32c0c00b-feb0-4876-b050-9845a92944d7">
-            <Info File="Part_2_AI_import/Exercise_2.mlx" GroupUUID="" Icon="" Name="Exercise_2" Type="Basic" Visible="1"/>
-        </EntryPoint>
         <EntryPoint Location="969e7e7f-f928-4551-85b2-b59e89addd3f">
             <Info File="Part_3_Code_Gen/Exercise_3.mlx" GroupUUID="" Icon="" Name="Exercise_3" Type="Basic" Visible="1"/>
         </EntryPoint>
@@ -336,13 +333,6 @@
                 <Info>
                     <Category UUID="FileClassCategory">
                         <Label UUID="artifact"/>
-                    </Category>
-                </Info>
-            </File>
-            <File Location="Exercise_2.mlx">
-                <Info>
-                    <Category UUID="FileClassCategory">
-                        <Label UUID="design"/>
                     </Category>
                 </Info>
             </File>
