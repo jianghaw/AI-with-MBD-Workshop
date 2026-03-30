@@ -7,7 +7,7 @@ Welcome to our **AI with Model-Based Design** workshop! This hands-on experience
 Throughout this workshop, you will engage in three comprehensive chapters, each featuring hands-on exercises to solidify your understanding:
 
 1. **Design and Train a Neural Network**: Learn how to create a feedforward neural network and integrate it into a Simulink simulation.
-2. **Integrate TensorFlow Models**: Discover how to import a model from TensorFlow and seamlessly integrate it into Simulink.
+2. **Integrate PyTorch Models**: Discover how to import a model from PyTorch and seamlessly integrate it into Simulink.
 3. **Model Compression and Code Generation**: Compress an LSTM model using projection, generate C/C++ code from Simulink with Embedded Coder, and profile its performance.
 
 
@@ -27,8 +27,14 @@ Embark on your AI development journey with MATLAB and Simulink today! Register f
 * [Simulink&reg;](https://www.mathworks.com/products/simulink.html)
 * [Deep Learning Toolbox&trade;](https://www.mathworks.com/products/deep-learning.html)
 * [Embedded Coder&reg;](https://www.mathworks.com/products/embedded-coder.html)
+* [MATLAB Coder&trade;](https://www.mathworks.com/products/matlab-coder.html)
+* [Simulink Coder&trade;](https://www.mathworks.com/products/simulink-coder.html)
+* [Statistics and Machine Learning Toolbox&trade;](https://www.mathworks.com/products/statistics.html)
+* [MATLAB Coder Interface for Deep Learning](https://www.mathworks.com/matlabcentral/fileexchange/68612)
+* [Deep Learning Toolbox Converter for PyTorch Model Format](https://www.mathworks.com/matlabcentral/fileexchange/111925)
+* [Deep Learning Toolbox Model Compression Library](https://www.mathworks.com/matlabcentral/fileexchange/74614)
 
 3rd Party Products:
-* [TensorFlow&trade;](https://www.tensorflow.org/)
+* [PyTorch&trade;](https://pytorch.org/)
 
-Copyright 2024 The MathWorks, Inc.
+Copyright 2026 The MathWorks, Inc.
