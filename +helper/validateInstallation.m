@@ -130,7 +130,7 @@ release = matlabRelease();
 if( "R2026a" == release.Release )
     requiredProductNamesList(end+1,1) = "MATLAB Coder Interface for Deep Learning";
 else
-    requiredProductNamesList(end+1,1) = "MATLAB Coder Interface for Deep Learning Library";
+    requiredProductNamesList(end+1,1) = "MATLAB Coder Interface for Deep Learning Libraries";
 end
 
 return;
