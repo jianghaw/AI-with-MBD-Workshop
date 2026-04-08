@@ -26,11 +26,12 @@ deepNetworkDesigner
 %[text]  Enter \[5 1\] — the model takes a single observation of 5 features (Voltage, Current, Temperature, Avg. Voltage, Avg. Current), matching the shape (5, 1) used when tracing. The wrapped model expects MATLAB's column-major format: 5 features × 1 observation.
 %[text] ![](text:image:042a)
 %%
-%[text] %[text:anchor:H_879105F1] ## Review Network Design
+%[text] ### Review Network Design
 %[text] After import is complete, click on the "Designer" tab to inspect the network architecture and confirm properties of individual layers.
+%[text] Note: depending on your MATLAB version, your imported model may visually look different from the screenshot below. But the network is indeed the same as its original PyTorch representation.
 %[text] ![](text:image:259f)
 %%
-%[text] %[text:anchor:H_664F242B] ## Export AI Model
+%[text] ### Save the model and export to Simulink
 %[text] Export the AI model to Simulink from the toolstrip.
 %[text] ![](text:image:46d3)
 %[text] The app has two types of Simulink export:
@@ -42,11 +43,12 @@ deepNetworkDesigner
 %[text] ![](text:image:2cfb)
 %[text] ![](text:image:25b0)
 %%
-%[text] %[text:anchor:H_731CC49A] ## Specify the input format in the Predict block
+%[text] ## Integrate AI model into Simulink
+%[text] ### Specify the input format in the Predict block (Optional) 
 %[text] Note the AI model is automatically saved as a MAT file along with the Simulink model .
-%[text] **To Do:** As we did in the previous exercise, double click on the **Predict Block** to open the **Block Parameters** menu. Specify the **Input data format** as "CB" - this means the input data is formatted as *c*-by-*n* array, where *c* is the number of features, and *n* is the number of observations. 
+%[text] **To Do:** As we did in the previous exercise, double click on the **Predict Block** to open the **Block Parameters** menu. You can verify and check all the settings. From this point on, everything is consistent with what you have experimented in [`Exercise_1`](file:../Part_1_AI_modeling/Exercise_1.m).
 %%
-%[text] ## **Generate the Inputs for Simulink**
+%[text] ### **Generate the Inputs for Simulink**
 %[text] In Simulink, there are several ways how you can import data: "From Workspace" block, "Inport" block, "From File" block and others. We are going to use "From Workspace" blocks. We need to generate the inputs for Simulink in the correct format and we can use the left-out test data set.
 dataFolder = helper.getDataFolder();
 testFile = fullfile(dataFolder,"Test","01_TEST_LGHG2@n10degC_Norm_(05_Inputs).mat"); %[control:dropdown:4c4e]{"position":[39,83]}
@@ -56,25 +58,24 @@ t = (0:(steps-1))';
 X_in = timeseries(single(S.X'), t);
 true_SOC = timeseries(single(S.Y'), t);
 %%
-%[text] %[text:anchor:H_40D6C9D1] ## Configure Model Parameters for Simulations
+%[text] ### Configure Model Parameters for Simulations
 %[text] Open the **Configuration Parameters** dialog (or Ctrl+E) and set **Stop time** to the workspace variable named "steps" (which is the total number of simulation steps; this variable will be generated in a later section), and set the solver to "Fixed-step" and "Discrete" with a fundamental step size of 1:
 %[text] ![2024-07-08_13-49-34.png](text:image:63d2)
 %[text] Also, set the **Simulation Target** language to C++:
 %[text] ![sl_target_language.jpg](text:image:2664)
 %[text] ## 
 %%
-%[text] %[text:anchor:H_77F0DDF9] ## **Connect the Model**
+%[text] ### **Connect the Model**
 %[text] Add two "From Workspace" blocks with "X\_in" and "true\_SOC" for the data variables, respectively. Connect the "X\_in" input to the "Predict" block. Connect the "true\_SOC" input to a "Scope" block in the following way:
 %[text] ![](text:image:3678)
 %%
-%[text] %[text:anchor:H_E1E4C76C] ## Run the Simulink Model
+%[text] ### Run the Simulink Model
 %[text] Now we can simulate the model by clicking the "Run" button and double-click on the "Scope" block to inspect simulation results:
-%[text] (You may check `exampleModel_PT_import.slx` if you run into any issues)
 %[text] ![](text:image:4525)
 %%
 %[text] %[text:anchor:H_9689F682] ## Alternative: Programmatically Import the Model
 %[text] Alternatively, you can directly call the **importNetworkFromPyTorch** function for model import. The imported network is a workspace variable that you can save into a ".mat" file. Then, you can use add a **Predict** block to a new model as it was done in [Exercise\_1.m](file:Exercise_1.mlx).
-netDL = importNetworkFromPyTorch(fullfile(helper.getCurrPartFolder("P2"), "Python_model"));
+netDL = importNetworkFromPyTorch(fullfile(helper.getCurrPartFolder("P2"), "Python_model", filesep, "soc_model.pt"),'PyTorchInputSizes',[5 1]);
 %[text] *Copyright 2026 The MathWorks, Inc.*
 
 %[appendix]{"version":"1.0"}

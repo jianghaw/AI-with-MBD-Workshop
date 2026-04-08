@@ -378,13 +378,6 @@
                     </Category>
                 </Info>
             </File>
-            <File Location="exampleModel_TF_import.slx">
-                <Info>
-                    <Category UUID="FileClassCategory">
-                        <Label UUID="design"/>
-                    </Category>
-                </Info>
-            </File>
             <File Location="models">
                 <Info/>
                 <DIR_SIGNIFIER Location="1">
@@ -400,13 +393,6 @@
                         </Category>
                     </Info>
                 </File>
-            </File>
-            <File Location="myTFmodel.mat">
-                <Info>
-                    <Category UUID="FileClassCategory">
-                        <Label UUID="design"/>
-                    </Category>
-                </Info>
             </File>
             <File Location="Exercise_2.m">
                 <Info>
